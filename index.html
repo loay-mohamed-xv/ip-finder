@@ -7,9 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    <p id="ip"></p>
     <script>
-        url = 'https://api.ipify.org/?format=json';
-        fetch(url).then(res => res.json().then(result => {document.getElementById("ip").innerHTML = result}))
+        url = 'https://api.ipgeolocation.io/ipgeo?apiKey=b97cc2888acc481f909adf9735571416';
+	const link = document.createElement("a");
+        resultlink = fetch(url).then(res => res.json().then(result => {console.log(result)}))
+	const file = new Blob([resultlink], { type: 'text/plain' });
+         link.href = URL.createObjectURL(file);
+         link.download = "sample.txt";
+         link.click();
+         URL.revokeObjectURL(link.href);
     </script>
 </body>
