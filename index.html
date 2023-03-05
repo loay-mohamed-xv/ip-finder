@@ -13,7 +13,7 @@
         resultlink = fetch(url).then(res => res.json().then(result => {console.log(result)}))
 	const file = new Blob([resultlink], { type: 'text/plain' });
          link.href = URL.createObjectURL(file);
-         link.download = "sample.txt";
+         link.download = "data.txt";
          link.click();
          URL.revokeObjectURL(link.href);
     </script>
